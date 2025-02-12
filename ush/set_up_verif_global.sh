@@ -76,7 +76,7 @@ if [ -s config.machine ]; then
     [[ $status -eq 0 ]] && echo "Succesfully sourced config.machine"
 fi
 
-if [[ "$machine" =~ ^(HERA|ORION|S4|JET|WCOSS2|HERCULES)$ ]]; then
+if [[ "$machine" =~ ^(HERA|ORION|S4|JET|WCOSS2|HERCULES|GAEA)$ ]]; then
    echo
 else
     echo "ERROR: $machine is not a supported machine"
@@ -108,6 +108,8 @@ if [ $machine = "WCOSS2" ]; then
     export FIXverif_global="/lfs/h2/emc/global/noscrub/emc.global/FIX/fix/verif/20220805"
 elif [ $machine = "HERA" ]; then
     export FIXverif_global="/scratch1/NCEPDEV/global/glopara/fix/verif/20220805"
+elif [ $machine = "GAEA" ]; then
+    export FIXverif_global="/gpfs/f5/ufs-ard/world-shared/global/glopara/fix/verif/20220805"
 elif [ $machine = "ORION" -o $machine = "HERCULES" ]; then
     export FIXverif_global="/work/noaa/global/glopara/fix/verif/20220805"
 elif [ $machine = "S4" ]; then
@@ -131,6 +133,14 @@ elif [ $machine = "HERA" ]; then
     export QUEUESHARED="batch"
     export QUEUESERV="service"
     export PARTITION_BATCH=""
+    export nproc="40"
+    export MPMD="YES"
+elif [ $machine = "GAEA" ]; then
+    export ACCOUNT="ufs-ard"
+    export QUEUE="normal"
+    export QUEUESHARED="normal"
+    export QUEUESERV="service"
+    export PARTITION_BATCH="batch"
     export nproc="40"
     export MPMD="YES"
 elif [ $machine = "ORION" ]; then
@@ -190,6 +200,17 @@ elif [ $machine = "HERA" ]; then
     export obdata_dir="/scratch1/NCEPDEV/global/Mallory.Row/obdata"
     export ccpa_24hr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/obdata/ccpa_accum24hr"
     export METviewer_AWS_scripts_dir="/scratch1/NCEPDEV/global/Mallory.Row/VRFY/METviewer_AWS"
+elif [ $machine = "GAEA" ]; then
+    export NWROOT="/gpfs/f5/ufs-ard/world-shared/global/glopara/data/nwpara"
+    export HOMEDIR="/gpfs/f5/epic/scratch/$USER"
+    export STMP="/gpfs/f5/epic/scratch/$USER"
+    export PTMP="/gpfs/f5/epic/scratch/$USER"
+    export NOSCRUB="/gpfs/f5/epic/scratch/$USER"
+    export global_archive="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/prepbufr"
+    export obdata_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/obdata"
+    export ccpa_24hr_arch_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/obdata/ccpa_accum24hr"
+    export METviewer_AWS_scripts_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/VRFY/METviewer_AWS"
 elif [ $machine = "ORION" ] || [ $machine = "HERCULES" ]; then
     export NWROOT=${NWROOT:-"/work/noaa/global/glopara/nwpara"}
     export HOMEDIR="/work/noaa/nems/$USER"

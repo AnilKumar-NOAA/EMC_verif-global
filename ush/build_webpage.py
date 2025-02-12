@@ -944,6 +944,11 @@ elif machine == 'HERA':
                   +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
+elif machine == 'GAEA':
+    os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
+                  +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
+                  +'--output='+web_job_output+' '
+                  +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'JET':
     if webhost == 'emcrzdm.ncep.noaa.gov':
         print("ERROR: Currently "+machine.title()+" cannot connect to "
