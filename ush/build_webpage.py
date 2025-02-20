@@ -944,7 +944,12 @@ elif machine == 'HERA':
                   +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
-elif machine == 'GAEA':
+elif machine == 'GAEAC5':
+    os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
+                  +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
+                  +'--output='+web_job_output+' '
+                  +'--job-name='+web_job_name+' '+web_job_filename)
+elif machine == 'GAEAC6':
     os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
                   +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
