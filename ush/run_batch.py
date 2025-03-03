@@ -60,7 +60,7 @@ with open(job_card_filename, 'a') as job_card:
         job_card.write('#SBATCH --nodes=1\n')
         job_card.write('#SBATCH --ntasks-per-node='+nproc+'\n')
         job_card.write('#SBATCH --time=6:00:00\n')
-    elif machine in ['ORION', 'S4', 'JET', 'HERCULES', 'GAEAC5', 'GAEAC6']:
+    elif machine in ['ORION', 'S4', 'JET', 'HERCULES']:
         job_card.write('#!/bin/sh\n')
         job_card.write('#SBATCH --partition='+PARTITION_BATCH+'\n')
         job_card.write('#SBATCH --qos='+QUEUE+'\n')
@@ -72,6 +72,7 @@ with open(job_card_filename, 'a') as job_card:
         job_card.write('#SBATCH --time=6:00:00\n')
     elif machine == 'GAEAC5':
         job_card.write('#!/bin/sh\n')
+        job_card.write('#SBATCH --partition='+PARTITION_BATCH+'\n')
         job_card.write('#SBATCH --account='+ACCOUNT+'\n')
         job_card.write('#SBATCH --job-name='+job_name+'\n')
         job_card.write('#SBATCH --output='+job_output_filename+'\n')
@@ -81,6 +82,7 @@ with open(job_card_filename, 'a') as job_card:
         job_card.write('#SBATCH --time=6:00:00\n')
     elif machine == 'GAEAC6':
         job_card.write('#!/bin/sh\n')
+        job_card.write('#SBATCH --partition='+PARTITION_BATCH+'\n')
         job_card.write('#SBATCH --account='+ACCOUNT+'\n')
         job_card.write('#SBATCH --job-name='+job_name+'\n')
         job_card.write('#SBATCH --output='+job_output_filename+'\n')
