@@ -108,10 +108,6 @@ if [ $machine = "WCOSS2" ]; then
     export FIXverif_global="/lfs/h2/emc/global/noscrub/emc.global/FIX/fix/verif/20220805"
 elif [ $machine = "HERA" ]; then
     export FIXverif_global="/scratch1/NCEPDEV/global/glopara/fix/verif/20220805"
-elif [ $machine = "GAEAC5" ]; then
-    export FIXverif_global="/gpfs/f5/ufs-ard/world-shared/global/glopara/fix/verif/20220805"
-elif [ $machine = "GAEAC6" ]; then
-    export FIXverif_global="/gpfs/f6/bil-fire8/world-shared/global/glopara/fix/verif/20220805"
 elif [ $machine = "ORION" -o $machine = "HERCULES" ]; then
     export FIXverif_global="/work/noaa/global/glopara/fix/verif/20220805"
 elif [ $machine = "S4" ]; then
