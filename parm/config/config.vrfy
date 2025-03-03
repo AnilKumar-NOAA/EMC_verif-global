@@ -31,9 +31,9 @@ echo "BEGIN: $(basename ${BASH_SOURCE[0]})"
 #RUN_MAPSDA:          run to make analysis maps of time-mean increments, ENKF ensemble mean and ensemble spread
 export RUN_GRID2GRID_STEP1="YES"
 export RUN_GRID2GRID_STEP2="NO"
-export RUN_GRID2OBS_STEP1="NO"
+export RUN_GRID2OBS_STEP1="YES"
 export RUN_GRID2OBS_STEP2="NO"
-export RUN_PRECIP_STEP1="NO"
+export RUN_PRECIP_STEP1="YES"
 export RUN_PRECIP_STEP2="NO"
 export RUN_SATELLITE_STEP1="NO"
 export RUN_SATELLITE_STEP2="NO"
@@ -53,16 +53,16 @@ export RUN_MAPSDA="NO"
 #model_hpss_dir_list:    HPSS directory of data
 #model_data_run_hpss:    get files from HPSS ("YES") if not online
 #hpss_walltime:          how long to run HPSS job to get data in minutes
-export model_list="C96_TEST_NEW"
-export model_dir_list="/gpfs/f5/epic/scratch/$USER/archive"
-export model_stat_dir_list="/gpfs/f5/epic/scratch/$USER/archive"
-export model_file_format_list="pgbf{lead?fmt=%2H}.gfs.{init?fmt=%Y%m%d%H}.grib2"
+export model_list="gfs"
+export model_dir_list="/lfs/h2/emc/vpppg/noscrub/emc.vpppg/verification/global/archive/model_data"
+export model_stat_dir_list="/lfs/h2/emc/vpppg/noscrub/$USER/archive"
+export model_file_format_list="pgbf{lead?fmt=%2H}.gfs.{init?fmt=%Y%m%d%H}"
 export model_data_run_hpss="NO"
 export model_hpss_dir_list="/NCEPPROD/hpssprod/runhistory"
 export hpss_walltime="10"
 ## OUTPUT DATA SETTINGS
 #OUTPUTROOT: base output directory
-export OUTPUTROOT="/gpfs/f5/epic/scratch/$USER/verif_global_standalone"
+export OUTPUTROOT="/lfs/h2/emc/stmp/$USER/verif_global_standalone"
 ## DATE SETTINGS
 #start_date:          verification start date, format YYYYMMDD
 #end_date:            verification end date, format YYYYMMDD
@@ -70,8 +70,8 @@ export OUTPUTROOT="/gpfs/f5/epic/scratch/$USER/verif_global_standalone"
 #spinup_period_end:   spinup period end, format YYYYMMDDHH, if none use "NA"
 #make_met_data_by:    how to treat dates, "VALID" or "INIT"
 #plot_by:             how to plot data, "VALID" or "INIT"
-export start_date=20210323
-export end_date=20210323
+export start_date=$(date -d "24 hours ago" '+%Y%m%d')
+export end_date=$(date -d "24 hours ago" '+%Y%m%d')
 export spinup_period_start="NA"
 export spinup_period_end="NA"
 export make_met_data_by="VALID"

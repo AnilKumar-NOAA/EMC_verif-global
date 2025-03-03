@@ -946,12 +946,12 @@ elif machine == 'HERA':
                   +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'GAEAC5':
     os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
-                  +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
+                  +'--clusters='+CLUSTERS+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'GAEAC6':
     os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
-                  +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
+                  +'--clusters='+CLUSTERS+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'JET':

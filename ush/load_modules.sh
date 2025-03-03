@@ -63,42 +63,6 @@ elif [ $machine = HERA ]; then
         "ERROR: $METplus_version is not supported on $machine"
         exit 1
     fi
-elif [ $machine = GAEAC5 ]; then
-    source /apps/lmod/lmod/init/sh
-    module purge
-    module use ${HOMEverif_global}/modulefiles
-    module load emc_verif_global_gaeac5
-    if [ $MET_version = 9.1 ]; then
-        export HOMEMET="/contrib/met/9.1"
-        export HOMEMET_bin_exec="bin"
-    else
-        "ERROR: $MET_version is not supported on $machine"
-        exit 1
-    fi
-    if [ $METplus_version = 3.1 ]; then
-        export HOMEMETplus="${METPLUS_PATH}"
-    else
-        "ERROR: $METplus_version is not supported on $machine"
-        exit 1
-    fi
-elif [ $machine = GAEAC6 ]; then
-    source /apps/lmod/lmod/init/sh
-    module purge
-    module use ${HOMEverif_global}/modulefiles
-    module load emc_verif_global_gaeac5
-    if [ $MET_version = 9.1 ]; then
-        export HOMEMET="/contrib/met/9.1"
-        export HOMEMET_bin_exec="bin"
-    else
-        "ERROR: $MET_version is not supported on $machine"
-        exit 1
-    fi
-    if [ $METplus_version = 3.1 ]; then
-        export HOMEMETplus="${METPLUS_PATH}"
-    else
-        "ERROR: $METplus_version is not supported on $machine"
-        exit 1
-    fi
 elif [ $machine = ORION ]; then
     source /apps/other/lmod/lmod/init/sh
     module purge
