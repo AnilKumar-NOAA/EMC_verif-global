@@ -277,6 +277,14 @@ if [ $machine = "HERA" ]; then
     export global_archive="/scratch1/NCEPDEV/global/Mallory.Row/archive"
     export prepbufr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/prepbufr"
     export ccpa_24hr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/obdata/ccpa_accum24hr"
+elif [ $machine = "GAEAC5" ]; then
+    export global_archive="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/prepbufr"
+    export ccpa_24hr_arch_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/obdata/ccpa_accum24hr"
+elif [ $machine = "GAEAC6" ]; then
+    export global_archive="/gpfs/f6/bil-fire8/world-shared/global/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f6/bil-fire8/world-shared/global/metplus.data/prepbufr"
+    export ccpa_24hr_arch_dir="/gpfs/f6/bil-fire8/world-shared/global/metplus.data/obdata/ccpa_accum24hr"
 elif [ $machine = "ORION" -o $machine = "HERCULES" ]; then
     export global_archive="/work/noaa/ovp/mrow/archive"
     export prepbufr_arch_dir="/work/noaa/ovp/mrow/prepbufr"
