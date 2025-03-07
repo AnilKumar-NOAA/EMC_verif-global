@@ -85,7 +85,7 @@ elif [ $machine = GAEAC6 ]; then
     source /apps/lmod/lmod/init/sh
     module purge
     module use ${HOMEverif_global}/modulefiles
-    module load emc_verif_global_gaeac5
+    module load emc_verif_global_gaeac6
     if [ $MET_version = 9.1 ]; then
         export HOMEMET="/contrib/met/9.1"
         export HOMEMET_bin_exec="bin"
