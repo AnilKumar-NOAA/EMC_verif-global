@@ -118,10 +118,6 @@ elif [ $machine = "S4" ]; then
     export FIXverif_global="/data/prod/glopara/fix/verif/20220805"
 elif [ $machine = "JET" ]; then
     export FIXverif_global="/lfs4/HFIP/hfv3gfs/glopara/git/fv3gfs/fix/verif/20220805"
-elif [ $machine = "GAEAC5" ]; then
-    export FIXverif_global="/gpfs/f5/ufs-ard/world-shared/global/glopara/fix/verif/20220805"
-elif [ $machine = "GAEAC6" ]; then
-    export FIXverif_global="/gpfs/f6/bil-fire8/world-shared/global/glopara/fix/verif/20220805/"
 fi
 
 ## Set machine specific account, queues, and run settings
