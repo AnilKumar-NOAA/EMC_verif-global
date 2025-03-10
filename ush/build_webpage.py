@@ -946,12 +946,12 @@ elif machine == 'HERA':
                   +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'GAEAC5':
     os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
-                  +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
+                  +'--clusters='+CLUSTERS+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'GAEAC6':
     os.system('sbatch --ntasks=1 --time='+walltime.strftime('%H:%M:%S')+' '
-                  +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
+                  +'--clusters='+CLUSTERS+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
 elif machine == 'JET':
@@ -963,7 +963,7 @@ elif machine == 'JET':
                   +'--partition='+QUEUESERV+' --account='+ACCOUNT+' '
                   +'--output='+web_job_output+' '
                   +'--job-name='+web_job_name+' '+web_job_filename)
-elif machine in ["ORION", "HERCULES", "S4"]:
+elif machine in ["ORION", "HERCULES", "S4","GAEAC5","GAEAC6"]:
     if webhost == 'emcrzdm.ncep.noaa.gov':
         print("ERROR: Currently " + machine + " cannot connect to "+webhost)
     else:
