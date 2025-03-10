@@ -288,6 +288,10 @@ if machine == 'WCOSS2':
     config['data_dir']='/u/emc.vpppg/.local/share/cartopy'
 elif machine == 'HERA':
     config['data_dir']='/home/Mallory.Row/.local/share/cartopy'
+elif machine == 'GAEAC5':
+    config['data_dir']='/gpfs/f5/ufs-ard/world-shared/global/metplus.data/cartopy'
+elif machine == 'GAEAC6':
+    config['data_dir']='/gpfs/f6/bil-fire8/world-shared/global/metplus.data/cartopy'
 elif machine == 'S4':
     config['data_dir']='/data/prod/glopara/contrib/share/cartopy'
 elif machine == 'JET':
