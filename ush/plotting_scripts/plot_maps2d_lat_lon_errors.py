@@ -287,23 +287,19 @@ elif img_quality == 'medium':
 if machine == 'WCOSS2':
     config['data_dir']='/u/emc.vpppg/.local/share/cartopy'
 elif machine == 'HERA':
-    config['data_dir']='/home/Mallory.Row/.local/share/cartopy'
-elif machine == 'GAEAC5':
-    config['data_dir']='/gpfs/f5/ufs-ard/world-shared/global/metplus.data/cartopy'
-elif machine == 'GAEAC6':
-    config['data_dir']='/gpfs/f6/bil-fire8/world-shared/global/metplus.data/cartopy'
+    config['data_dir']='/scratch1/NCEPDEV/global/glopara/data/metplus.data/cartopy'
 elif machine == 'S4':
     config['data_dir']='/data/prod/glopara/contrib/share/cartopy'
 elif machine == 'JET':
     config['data_dir']='/home/Mallory.Row/.local/share/cartopy'
-elif machine == 'ORION':
-    config['data_dir']='/home/mrow/.local/share/cartopy'
-elif machine == 'HERCULES':
-    config['data_dir']='/home/dhuber/.local/share/cartopy'
-elif machine == 'GAEAC5':
-    config['data_dir']='/gpfs/f5/ufs-ard/world-shared/global/metplus.data/cartopy'
-elif machine == 'GAEAC6':
-    config['data_dir']='/gpfs/f6/bil-fire8/world-shared/global/metplus.data/cartopy'
+elif machine == 'ORION': 
+    config['data_dir']='/work2/noaa/global/role-global/data/metplus.data/cartopy' 
+elif machine == 'HERCULES': 
+    config['data_dir']='/work2/noaa/global/role-global/data/metplus.data/cartopy' 
+elif machine == 'GAEAC5': 
+    config['data_dir']='/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/cartopy' 
+elif machine == 'GAEAC6': 
+    config['data_dir']='/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/cartopy'
 
 # Set up information
 env_var_model_list = []
