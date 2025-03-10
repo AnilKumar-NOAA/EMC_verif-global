@@ -277,14 +277,6 @@ if [ $machine = "HERA" ]; then
     export global_archive="/scratch1/NCEPDEV/global/Mallory.Row/archive"
     export prepbufr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/prepbufr"
     export ccpa_24hr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/obdata/ccpa_accum24hr"
-elif [ $machine = "GAEAC5" ]; then
-    export global_archive="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/archive"
-    export prepbufr_arch_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/prepbufr"
-    export ccpa_24hr_arch_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/obdata/ccpa_accum24hr"
-elif [ $machine = "GAEAC6" ]; then
-    export global_archive="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/archive"
-    export prepbufr_arch_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/prepbufr"
-    export ccpa_24hr_arch_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/obdata/ccpa_accum24hr"
 elif [ $machine = "ORION" -o $machine = "HERCULES" ]; then
     export global_archive="/work/noaa/ovp/mrow/archive"
     export prepbufr_arch_dir="/work/noaa/ovp/mrow/prepbufr"
@@ -302,13 +294,13 @@ elif [ $machine = "WCOSS2" ]; then
     export prepbufr_arch_dir="/lfs/h2/emc/vpppg/noscrub/emc.vpppg/verification/global/archive/obs_data/prepbufr"
     export ccpa_24hr_arch_dir="/lfs/h2/emc/vpppg/noscrub/emc.vpppg/verification/global/archive/obs_data/ccpa_accum24hr"
 elif [ $machine = "GAEAC5" ]; then
-    export global_archive="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/archive"
-    export prepbufr_arch_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/prepbufr"
-    export ccpa_24hr_arch_dir="/gpfs/f5/ufs-ard/world-shared/global/metplus.data/obdata/ccpa_accum24hr"
+    export global_archive="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/prepbufr"
+    export ccpa_24hr_arch_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/obdata/ccpa_accum24hr"
 elif [ $machine = "GAEAC6" ]; then
-    export global_archive="/gpfs/f6/bil-fire8/world-shared/global/metplus.data/archive"
-    export prepbufr_arch_dir="/gpfs/f6/bil-fire8/world-shared/global/metplus.data/prepbufr"
-    export ccpa_24hr_arch_dir="/gpfs/f6/bil-fire8/world-shared/global/metplus.data/obdata/ccpa_accum24hr"
+    export global_archive="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/prepbufr"
+    export ccpa_24hr_arch_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/obdata/ccpa_accum24hr"
 fi
 
 ## Set operational directories
