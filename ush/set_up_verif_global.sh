@@ -117,8 +117,7 @@ elif [ $machine = "JET" ]; then
 elif [ $machine = "GAEAC5" ]; then
     export FIXverif_global="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/FIX/verif/20220805"
 elif [ $machine = "GAEAC6" ]; then
-    export FIXverif_global="    export FIXverif_global="/gpfs/f6/drsa-precip3/world-shared/role.glopara/fix/verif/20220805"
-"
+    export FIXverif_global="/gpfs/f6/drsa-precip3/world-shared/role.glopara/fix/verif/20220805"
 fi
 
 ## Set machine specific account, queues, and run settings
@@ -137,24 +136,6 @@ elif [ $machine = "HERA" ]; then
     export QUEUESERV="service"
     export PARTITION_BATCH=""
     export nproc="40"
-    export MPMD="YES"
-elif [ $machine = "GAEAC5" ]; then
-    export ACCOUNT="ufs-ard"
-    export QUEUE="normal"
-    export QUEUESHARED="normal"
-    export QUEUESERV="service"
-    export CLUSTERS="c5"
-    export PARTITION_BATCH="batch"
-    export nproc="128"
-    export MPMD="YES"
-elif [ $machine = "GAEAC6" ]; then
-    export ACCOUNT="bil-fire8"
-    export QUEUE="normal"
-    export QUEUESHARED="normal"
-    export QUEUESERV="service"
-    export CLUSTERS="c6"
-    export PARTITION_BATCH="batch"
-    export nproc="192"
     export MPMD="YES"
 elif [ $machine = "ORION" ]; then
     export ACCOUNT="fv3-cpu"
@@ -190,18 +171,20 @@ elif [ $machine = "JET" ]; then
     export MPMD="YES"
 elif [ $machine = "GAEAC5" ]; then
     export ACCOUNT="ufs-ard"
-    export QUEUE="batch"
-    export QUEUESHARED="batch"
+    export QUEUE="normal"
+    export QUEUESHARED="normal"
     export QUEUESERV="service"
-    export PARTITION_BATCH=""
+    export CLUSTERS="c5"
+    export PARTITION_BATCH="batch"
     export nproc="128"
     export MPMD="YES"
 elif [ $machine = "GAEAC6" ]; then
     export ACCOUNT="bil-fire8"
-    export QUEUE="batch"
-    export QUEUESHARED="batch"
+    export QUEUE="normal"
+    export QUEUESHARED="normal"
     export QUEUESERV="service"
-    export PARTITION_BATCH=""
+    export CLUSTERS="c6"
+    export PARTITION_BATCH="batch"
     export nproc="192"
     export MPMD="YES"
 fi
