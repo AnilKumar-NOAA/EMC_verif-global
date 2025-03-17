@@ -51,7 +51,7 @@ elif [ $machine = HERA ]; then
     module use ${HOMEverif_global}/modulefiles
     module load emc_verif_global_hera
     if [ $MET_version = 9.1 ]; then
-        export HOMEMET="/contrib/met/9.1"
+        export HOMEMET="/contrib/met/9.1.3"
         export HOMEMET_bin_exec="bin"
     else
         "ERROR: $MET_version is not supported on $machine"
@@ -116,6 +116,42 @@ elif [ $machine = JET ]; then
     fi
     if [ $METplus_version = 3.1 ]; then
         export HOMEMETplus="${METPLUS_PATH}"
+    else
+        "ERROR: $METplus_version is not supported on $machine"
+        exit 1
+    fi
+elif [ $machine = GAEAC5 ]; then
+    module reset
+    module use ${HOMEverif_global}/modulefiles
+    module load emc_verif_global_gaeac5
+    module swap python/3.11.6 python/3.9
+    if [[ "${MET_version}" =~ ^(9.1) ]]; then
+        export HOMEMET="${met_ROOT}"
+        export HOMEMET_bin_exec="bin"
+    else
+        "ERROR: $MET_version is not supported on $machine"
+        exit 1
+    fi
+    if [[ "${METplus_version}" =~ ^(3.1) ]]; then
+        export HOMEMETplus="${metplus_ROOT}"
+    else
+        "ERROR: $METplus_version is not supported on $machine"
+        exit 1
+    fi
+elif [ $machine = GAEAC6 ]; then
+    module reset
+    module use ${HOMEverif_global}/modulefiles
+    module load emc_verif_global_gaeac6
+    module swap python/3.11.6 python/3.11
+    if [ $MET_version = 9.1 ]; then
+        export HOMEMET="${met_ROOT}"
+        export HOMEMET_bin_exec="bin"
+    else
+        "ERROR: $MET_version is not supported on $machine"
+        exit 1
+    fi
+    if [ $METplus_version = 3.1 ]; then
+        export HOMEMETplus="${metplus_ROOT}"
     else
         "ERROR: $METplus_version is not supported on $machine"
         exit 1

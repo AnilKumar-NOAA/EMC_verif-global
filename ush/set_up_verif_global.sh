@@ -76,7 +76,7 @@ if [ -s config.machine ]; then
     [[ $status -eq 0 ]] && echo "Succesfully sourced config.machine"
 fi
 
-if [[ "$machine" =~ ^(HERA|ORION|S4|JET|WCOSS2|HERCULES)$ ]]; then
+if [[ "$machine" =~ ^(HERA|ORION|S4|JET|WCOSS2|HERCULES|GAEAC5|GAEAC6)$ ]]; then
    echo
 else
     echo "ERROR: $machine is not a supported machine"
@@ -114,6 +114,10 @@ elif [ $machine = "S4" ]; then
     export FIXverif_global="/data/prod/glopara/fix/verif/20220805"
 elif [ $machine = "JET" ]; then
     export FIXverif_global="/lfs4/HFIP/hfv3gfs/glopara/git/fv3gfs/fix/verif/20220805"
+elif [ $machine = "GAEAC5" ]; then
+    export FIXverif_global="/gpfs/f5/nggps_emc/world-shared/role.glopara/FIX/fix/verif/20220805"
+elif [ $machine = "GAEAC6" ]; then
+    export FIXverif_global="/gpfs/f6/drsa-precip3/world-shared/role.glopara/fix/verif/20220805"
 fi
 
 ## Set machine specific account, queues, and run settings
@@ -165,6 +169,24 @@ elif [ $machine = "JET" ]; then
     export PARTITION_BATCH="xjet"
     export nproc="10"
     export MPMD="YES"
+elif [ $machine = "GAEAC5" ]; then
+    export ACCOUNT="ufs-ard"
+    export QUEUE="normal"
+    export QUEUESHARED="normal"
+    export QUEUESERV="service"
+    export CLUSTERS="c5"
+    export PARTITION_BATCH="batch"
+    export nproc="128"
+    export MPMD="YES"
+elif [ $machine = "GAEAC6" ]; then
+    export ACCOUNT="bil-fire8"
+    export QUEUE="normal"
+    export QUEUESHARED="normal"
+    export QUEUESERV="service"
+    export CLUSTERS="c6"
+    export PARTITION_BATCH="batch"
+    export nproc="192"
+    export MPMD="YES"
 fi
 
 ## Set machine and user specific directories
@@ -185,22 +207,22 @@ elif [ $machine = "HERA" ]; then
     export STMP="/scratch1/NCEPDEV/stmp2/$USER"
     export PTMP="/scratch1/NCEPDEV/stmp4/$USER"
     export NOSCRUB="/scratch1/NCEPDEV/global/$USER"
-    export global_archive="/scratch1/NCEPDEV/global/Mallory.Row/archive"
-    export prepbufr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/prepbufr"
-    export obdata_dir="/scratch1/NCEPDEV/global/Mallory.Row/obdata"
-    export ccpa_24hr_arch_dir="/scratch1/NCEPDEV/global/Mallory.Row/obdata/ccpa_accum24hr"
-    export METviewer_AWS_scripts_dir="/scratch1/NCEPDEV/global/Mallory.Row/VRFY/METviewer_AWS"
+    export global_archive="/scratch1/NCEPDEV/global/glopara/data/metplus.data/archive"
+    export prepbufr_arch_dir="/scratch1/NCEPDEV/global/glopara/data/metplus.data/prepbufr"
+    export obdata_dir="/scratch1/NCEPDEV/global/glopara/data/metplus.data/obdata"
+    export ccpa_24hr_arch_dir="/scratch1/NCEPDEV/global/glopara/data/metplus.data/obdata/ccpa_accum24hr"
+    export METviewer_AWS_scripts_dir="/scratch1/NCEPDEV/global/glopara/data/metplus.data/VRFY/METviewer_AWS"
 elif [ $machine = "ORION" ] || [ $machine = "HERCULES" ]; then
     export NWROOT=${NWROOT:-"/work/noaa/global/glopara/nwpara"}
     export HOMEDIR="/work/noaa/nems/$USER"
     export STMP="/work/noaa/stmp/$USER"
     export PTMP="/work/noaa/stmp/$USER"
     export NOSCRUB="/work/noaa/nems/$USER"
-    export global_archive="/work/noaa/ovp/mrow/archive"
-    export prepbufr_arch_dir="/work/noaa/ovp/mrow/prepbufr"
-    export obdata_dir="/work/noaa/ovp/mrow/obdata"
-    export ccpa_24hr_arch_dir="/work/noaa/ovp/mrow/obdata/ccpa_accum24hr"
-    export METviewer_AWS_scripts_dir="/work/noaa/ovp/mrow/VRFY/METviewer_AWS"
+    export global_archive="/work2/noaa/global/role-global/data/metplus.data/archive"
+    export prepbufr_arch_dir="/work2/noaa/global/role-global/data/metplus.data/prepbufr"
+    export obdata_dir="/work2/noaa/global/role-global/data/metplus.data/obdata"
+    export ccpa_24hr_arch_dir="/work2/noaa/global/role-global/data/metplus.data/obdata/ccpa_accum24hr"
+    export METviewer_AWS_scripts_dir="/work2/noaa/global/role-global/data/metplus.data/VRFY/METviewer_AWS"
 elif [ $machine = "S4" ]; then
     export NWROOT=${NWROOT:-"/data/prod/glopara/nwpara"}
     export HOMEDIR="/data/users/$USER"
@@ -223,6 +245,29 @@ elif [ $machine = "JET" ]; then
     export obdata_dir="/lfs4/HFIP/hfv3gfs/Mallory.Row/obdata"
     export ccpa_24hr_arch_dir="/lfs4/HFIP/hfv3gfs/Mallory.Row/obdata/ccpa_accum24hr"
     export METviewer_AWS_scripts_dir="/lfs4/HFIP/hfv3gfs/Mallory.Row/VRFY/METviewer_AWS"
+elif [ $machine = "GAEAC5" ]; then
+    export NWROOT="/gpfs/f5/${ACCOUNT}/world-shared/global/glopara/data/nwpara"
+    export HOMEDIR="/gpfs/f5/${ACCOUNT}/scratch/${USER}"
+    export STMP="/gpfs/f5/${ACCOUNT}/scratch/${USER}/stmp2"
+    export PTMP="/gpfs/f5/${ACCOUNT}/scratch/${USER}/stmp4"
+    export NOSCRUB="/gpfs/f5/${ACCOUNT}/scratch/${USER}/noscrub"
+    export global_archive="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/prepbufr"
+    export obdata_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/obdata"
+    export ccpa_24hr_arch_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/obdata/ccpa_accum24hr"
+    export METviewer_AWS_scripts_dir="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/metplus.data/VRFY/METviewer_AWS"
+elif [ $machine = "GAEAC6" ]; then
+    export NWROOT="/gpfs/f6/${ACCOUNT}/world-shared/global/glopara/data/nwpara"
+    export HOMEDIR="/gpfs/f6/${ACCOUNT}/scratch/${USER}"
+    export STMP="/gpfs/f6/${ACCOUNT}/scratch/${USER}/stmp2"
+    export PTMP="/gpfs/f6/${ACCOUNT}/scratch/${USER}/stmp4"
+    export NOSCRUB="/gpfs/f6/${ACCOUNT}/scratch/${USER}/noscrub"
+    export global_archive="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/archive"
+    export prepbufr_arch_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/prepbufr"
+    export obdata_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/obdata"
+    export ccpa_24hr_arch_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/obdata/ccpa_accum24hr"
+    export METviewer_AWS_scripts_dir="/gpfs/f6/drsa-precip3/world-shared/role.glopara/data/metplus.data/VRFY/METviewer_AWS"
+
 fi
 
 ## Set operational directories
