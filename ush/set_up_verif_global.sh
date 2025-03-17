@@ -115,7 +115,7 @@ elif [ $machine = "S4" ]; then
 elif [ $machine = "JET" ]; then
     export FIXverif_global="/lfs4/HFIP/hfv3gfs/glopara/git/fv3gfs/fix/verif/20220805"
 elif [ $machine = "GAEAC5" ]; then
-    export FIXverif_global="/gpfs/f5/nggps_emc/world-shared/role.glopara/DATA/FIX/verif/20220805"
+    export FIXverif_global="/gpfs/f5/nggps_emc/world-shared/role.glopara/FIX/fix/verif/20220805"
 elif [ $machine = "GAEAC6" ]; then
     export FIXverif_global="/gpfs/f6/drsa-precip3/world-shared/role.glopara/fix/verif/20220805"
 fi
